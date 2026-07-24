@@ -22,3 +22,5 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main
 
 kind delete cluster
 kind create cluster --config kind-config.yaml
+
+helm upgrade --install argocd argo/argo-cd -n argocd --create-namespace -f values-argo.yamle

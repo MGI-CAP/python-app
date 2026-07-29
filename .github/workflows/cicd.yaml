@@ -40,10 +40,9 @@ jobs:
 
       - name: Install yq
         uses: mikefarah/yq@v4
-
-      - name: Modify values
-        run: |
-            yq -i '.images.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
+        with:
+          cmd: |
+              yq -i '.images.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
           
       - name: Install ARGOCD
         shell: bash

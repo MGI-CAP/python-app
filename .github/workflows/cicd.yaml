@@ -28,12 +28,28 @@ jobs:
         with:
           push: true
           tags: mgd31/python-app:${{ env.COMMIT_ID }}
+    outputs:
+      commit_id:  ${{ env.COMMIT_ID }}
 
   cd:
     needs: ci
     runs-on: self-hosted
     steps:
 
+      - uses: actions/checkout@v3
+
+      - name: Modyfi values
+        shell: bash
+        run: |
+          echo ${{ needs.ci.outputs.commit_id }}
+          pip install yq
+          yq -Yi '.images.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Updates values.yaml with commit ${{needs.ci.outputs.commit_id}}'
+          
       - name: Install ARGOCD
         shell: bash
         run: |

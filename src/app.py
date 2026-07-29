@@ -18,7 +18,7 @@ def details():
         'hostname': socket.gethostname(),
         'meesage': 'you are doing great,humain'
     })
- 
+
 @app.route('/api/v1/healthz')
 
 def health():

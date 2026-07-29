@@ -42,7 +42,7 @@ jobs:
         uses: mikefarah/yq@v4
         with:
           cmd: |
-              yq -i '.images.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
+              yq -i '.image.tag = "${{ needs.ci.outputs.commit_id }}"' charts/python-app/values.yaml
           
       - name: Install ARGOCD
         shell: bash

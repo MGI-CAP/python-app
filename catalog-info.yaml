@@ -5,6 +5,8 @@ metadata:
   description: Dispalys the time
   annotations:
     github.com/project-slug: MGI-CAP/python-app
+    backstage.io/techdocs-ref: dir:.
+
 spec:
   type: service
   owner: development

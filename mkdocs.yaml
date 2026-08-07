@@ -1,0 +1,12 @@
+site_name: 'Python-app'
+site_description: 'Main documentation for python-app'
+repo_url: https://github.com/MGI-CAP/python-app
+edit_uri: edit/main/docs
+
+plugins:
+  - techdocs-core
+
+# For sidebar navigation on https://backstage.io/, see `microsite/sidebars.js`
+nav:
+  - Overview:
+      - Start: 'docs/index.md'
